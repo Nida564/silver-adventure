@@ -1,0 +1,361 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#fff8f7">
+    <meta name="description" content="Handmade crochet treasures, made slowly and loved for a long time. Shop Ahead of Time.">
+    <title>Ahead of Time | Handmade Crochet, Happily Yours</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        color-scheme: light;
+        --ink: #34252c;
+        --muted: #78656d;
+        --rose: #e77d96;
+        --berry: #a93f64;
+        --petal: #fff1f2;
+        --paper: #fffaf7;
+        --line: #efdfe0;
+        --sage: #697b61;
+        --serif: "Fraunces", Georgia, serif;
+        --sans: "DM Sans", sans-serif;
+      }
+
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--sans); }
+      a { color: inherit; }
+      button, input, textarea { font: inherit; }
+      button { color: inherit; }
+      img { display: block; width: 100%; }
+      .announcement { padding: 10px 20px; background: var(--sage); color: white; text-align: center; font-size: 12px; letter-spacing: .04em; }
+      .site-header { position: sticky; z-index: 5; top: 0; border-bottom: 1px solid var(--line); background: rgb(255 250 247 / 94%); backdrop-filter: blur(12px); }
+      .nav-wrap { max-width: 1180px; min-height: 76px; margin: auto; padding: 0 28px; display: flex; align-items: center; justify-content: space-between; gap: 30px; }
+      .wordmark { color: var(--berry); font-family: var(--serif); font-size: 27px; font-weight: 600; text-decoration: none; white-space: nowrap; }
+      .nav-links { display: flex; align-items: center; gap: 30px; }
+      .nav-links a { color: var(--muted); font-size: 14px; text-decoration: none; }
+      .nav-links a:hover { color: var(--berry); }
+      .cart-button, .button { min-height: 44px; padding: 0 18px; display: inline-flex; align-items: center; justify-content: center; gap: 9px; border: 0; border-radius: 4px; background: var(--berry); color: white; cursor: pointer; font-weight: 600; text-decoration: none; transition: background .2s, transform .2s; }
+      .cart-button:hover, .button:hover { transform: translateY(-1px); background: #873451; }
+      .cart-count { min-width: 21px; height: 21px; padding: 0 5px; display: inline-grid; place-items: center; border-radius: 50%; background: white; color: var(--berry); font-size: 12px; }
+      .hero { position: relative; min-height: 550px; overflow: hidden; display: grid; grid-template-columns: 1fr 1fr; background: #fae5e8; }
+      .hero-copy { z-index: 1; max-width: 590px; padding: 94px 32px 84px max(48px, calc((100vw - 1120px) / 2)); align-self: center; }
+      .eyebrow { color: var(--berry); font-size: 11px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; }
+      h1, h2, h3, p { margin-top: 0; }
+      h1, h2, h3 { font-family: var(--serif); font-weight: 500; }
+      h1 { margin: 18px 0; font-size: clamp(48px, 6.2vw, 78px); line-height: 1.03; }
+      h1 em { color: var(--berry); font-weight: 500; }
+      .hero-copy > p { max-width: 410px; margin-bottom: 27px; color: #69525c; font-size: 16px; line-height: 1.8; }
+      .hero-note { margin: 22px 0 0; color: var(--muted); font-size: 12px; }
+      .hero-image { min-height: 550px; background: #e4c9c1; }
+      .hero-image img { height: 100%; object-fit: cover; object-position: center 50%; }
+      .ticker { padding: 15px 20px; overflow: hidden; background: #e6eee2; color: #43513d; text-align: center; font-family: var(--serif); font-size: 16px; }
+      .section { max-width: 1180px; margin: 0 auto; padding: 88px 28px; }
+      .section-heading { margin-bottom: 32px; display: flex; align-items: end; justify-content: space-between; gap: 20px; }
+      .section-heading h2 { margin: 9px 0 0; font-size: 43px; }
+      .section-heading > p { max-width: 360px; margin: 0 0 4px; color: var(--muted); font-size: 14px; line-height: 1.7; }
+      .product-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 25px; }
+      .product-card { min-width: 0; }
+      .product-image { position: relative; aspect-ratio: 4 / 4.6; overflow: hidden; background: #f0e1db; }
+      .product-image img { width: 100%; height: 100%; object-fit: cover; transition: transform .45s; }
+      .product-card:hover .product-image img { transform: scale(1.035); }
+      .product-label { position: absolute; top: 13px; left: 13px; padding: 7px 10px; background: var(--paper); color: var(--berry); font-size: 10px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+      .product-info { padding-top: 16px; display: flex; align-items: start; justify-content: space-between; gap: 12px; }
+      .product-info h3 { margin: 0 0 5px; font-size: 23px; }
+      .product-info p { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.55; }
+      .price { color: var(--berry); font-size: 15px; font-weight: 700; white-space: nowrap; }
+      .add-button { width: 100%; min-height: 42px; margin-top: 14px; border: 1px solid #d7afb9; background: transparent; color: var(--berry); cursor: pointer; font-weight: 600; transition: .2s; }
+      .add-button:hover { background: var(--berry); color: white; }
+      .story { background: #f5ece5; }
+      .story-inner { max-width: 1180px; margin: auto; padding: 78px 28px; display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 70px; }
+      .story-image { aspect-ratio: 5 / 4; overflow: hidden; background: #e2d0c5; }
+      .story-image img { height: 100%; object-fit: cover; }
+      .story-copy h2 { max-width: 480px; margin: 12px 0 18px; font-size: 42px; line-height: 1.12; }
+      .story-copy p { max-width: 470px; color: var(--muted); font-size: 14px; line-height: 1.85; }
+      .story-copy .button { margin-top: 7px; }
+      .promise { max-width: 1180px; margin: auto; padding: 48px 28px; display: grid; grid-template-columns: repeat(3, 1fr); border-bottom: 1px solid var(--line); text-align: center; }
+      .promise div { padding: 8px 20px; }
+      .promise div + div { border-left: 1px solid var(--line); }
+      .promise strong { display: block; margin-bottom: 6px; font-family: var(--serif); font-size: 19px; font-weight: 500; }
+      .promise span { color: var(--muted); font-size: 12px; }
+      .site-footer { background: #fff3f1; }
+      .footer-inner { max-width: 1180px; margin: auto; padding: 42px 28px; display: flex; align-items: center; justify-content: space-between; gap: 25px; }
+      .footer-inner p { margin: 5px 0 0; color: var(--muted); font-size: 12px; }
+      .footer-links { display: flex; gap: 20px; color: var(--muted); font-size: 13px; }
+      .footer-links a { text-decoration: none; }
+      .footer-links a:hover { color: var(--berry); }
+      dialog { width: min(490px, calc(100% - 28px)); max-height: min(85vh, 760px); padding: 0; border: 1px solid var(--line); background: var(--paper); color: var(--ink); box-shadow: 0 20px 90px rgb(52 37 44 / 20%); }
+      dialog::backdrop { background: rgb(52 37 44 / 48%); backdrop-filter: blur(2px); }
+      .dialog-head { padding: 20px 22px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--line); }
+      .dialog-head h2 { margin: 0; font-size: 27px; }
+      .icon-button { width: 38px; height: 38px; border: 1px solid var(--line); background: transparent; cursor: pointer; font-size: 21px; }
+      .dialog-body { padding: 20px 22px 24px; }
+      .cart-items { display: grid; gap: 15px; }
+      .cart-row { padding-bottom: 14px; display: grid; grid-template-columns: 1fr auto; gap: 5px 14px; border-bottom: 1px solid var(--line); }
+      .cart-row strong { font-size: 14px; }
+      .cart-row > span { font-size: 14px; font-weight: 600; }
+      .quantity-controls { display: flex; align-items: center; gap: 10px; color: var(--muted); font-size: 13px; }
+      .quantity-controls button { width: 28px; height: 28px; border: 1px solid var(--line); background: white; cursor: pointer; }
+      .cart-total { margin: 20px 0; display: flex; justify-content: space-between; font-weight: 700; }
+      .empty-cart { padding: 16px 0; color: var(--muted); font-size: 14px; line-height: 1.7; }
+      .checkout-form { display: grid; gap: 12px; }
+      .checkout-form label { display: grid; gap: 5px; color: var(--muted); font-size: 12px; font-weight: 600; }
+      .checkout-form input, .checkout-form textarea { width: 100%; padding: 11px; border: 1px solid var(--line); border-radius: 2px; background: white; color: var(--ink); }
+      .checkout-form textarea { min-height: 72px; resize: vertical; }
+      .checkout-form .button { width: 100%; }
+      .checkout-note { margin: 0; color: var(--muted); font-size: 11px; line-height: 1.6; }
+      .toast { position: fixed; z-index: 10; right: 20px; bottom: 20px; padding: 13px 18px; transform: translateY(12px); background: var(--sage); color: white; font-size: 13px; opacity: 0; pointer-events: none; transition: .2s; }
+      .toast.visible { transform: translateY(0); opacity: 1; }
+      @media (max-width: 760px) {
+        .nav-wrap { min-height: 68px; padding: 0 18px; gap: 12px; }
+        .wordmark { font-size: 23px; }
+        .nav-links { gap: 15px; }
+        .nav-links a { font-size: 12px; }
+        .cart-button { min-height: 40px; padding: 0 11px; font-size: 12px; }
+        .hero { grid-template-columns: 1fr; }
+        .hero-copy { padding: 62px 25px 40px; }
+        h1 { max-width: 500px; font-size: 58px; }
+        .hero-image { min-height: 310px; max-height: 400px; }
+        .section { padding: 62px 20px; }
+        .section-heading { align-items: start; flex-direction: column; gap: 10px; }
+        .section-heading h2 { font-size: 36px; }
+        .product-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px 14px; }
+        .product-info { flex-direction: column; gap: 7px; }
+        .product-info h3 { font-size: 20px; }
+        .story-inner { padding: 55px 20px; grid-template-columns: 1fr; gap: 30px; }
+        .story-copy h2 { font-size: 37px; }
+        .promise { padding: 30px 12px; }
+        .promise div { padding: 8px; }
+        .promise strong { font-size: 16px; }
+        .promise span { font-size: 10px; }
+        .footer-inner { align-items: start; flex-direction: column; padding: 32px 20px; }
+      }
+      @media (max-width: 390px) {
+        .nav-links { gap: 10px; }
+        .nav-links a { font-size: 11px; }
+        .wordmark { font-size: 20px; }
+        .cart-button { padding: 0 8px; }
+        h1 { font-size: 50px; }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="announcement">A little love in every loop · Free shipping on orders over $75</div>
+    <header class="site-header">
+      <nav class="nav-wrap" aria-label="Main navigation">
+        <a class="wordmark" href="#home">Ahead of Time</a>
+        <div class="nav-links">
+          <a href="#shop">Shop</a>
+          <a href="#story">Our story</a>
+          <button class="cart-button" id="open-cart" type="button" aria-label="Open shopping bag">Bag <span class="cart-count" id="cart-count">0</span></button>
+        </div>
+      </nav>
+    </header>
+
+    <main id="home">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <span class="eyebrow">Slow-made. Sweetly kept.</span>
+          <h1 id="hero-title">A little handmade <em>happiness.</em></h1>
+          <p>Thoughtful crochet treasures for everyday magic. Made stitch by stitch, with a whole lot of heart.</p>
+          <a class="button" href="#shop">Find your favorite <span aria-hidden="true">&rarr;</span></a>
+          <p class="hero-note">Small batches, made with love and a little bit of whimsy.</p>
+        </div>
+        <div class="hero-image">
+          <img src="https://images.unsplash.com/photo-1610701596007-11502861dcfa?auto=format&fit=crop&w=1400&q=85" alt="A cozy collection of handmade craft and crochet details">
+        </div>
+      </section>
+
+      <div class="ticker">Made by hand, meant to be held close &nbsp; ✿ &nbsp; Made by hand, meant to be held close</div>
+
+      <section class="section" id="shop" aria-labelledby="shop-title">
+        <div class="section-heading">
+          <div><span class="eyebrow">The little things</span><h2 id="shop-title">Made to make you smile</h2></div>
+          <p>Every piece is handmade in small batches. Pick a favorite and make it yours.</p>
+        </div>
+        <div class="product-grid" id="product-grid" aria-live="polite"></div>
+      </section>
+
+      <section class="story" id="story" aria-labelledby="story-title">
+        <div class="story-inner">
+          <div class="story-image">
+            <img src="https://images.unsplash.com/photo-1452860606245-08befc0ff44b?auto=format&fit=crop&w=1000&q=85" alt="A colorful, carefully arranged worktable for making by hand" loading="lazy">
+          </div>
+          <div class="story-copy">
+            <span class="eyebrow">A note from the maker</span>
+            <h2 id="story-title">Good things take a little time.</h2>
+            <p>Ahead of Time is a one-maker crochet shop for the pieces that make ordinary days feel special. I choose soft yarns, take my time with every stitch, and make each order with care.</p>
+            <p>Thanks for being here and for choosing handmade. It really does mean the world.</p>
+            <a class="button" href="#shop">Browse the collection</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="promise" aria-label="Shop promises">
+        <div><strong>Made by hand</strong><span>Small batches, never mass-made</span></div>
+        <div><strong>Soft on purpose</strong><span>Comfort chosen stitch by stitch</span></div>
+        <div><strong>Packed with care</strong><span>A happy little parcel, just for you</span></div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <div><a class="wordmark" href="#home">Ahead of Time</a><p>Handmade slowly, loved for a long time.</p></div>
+        <address class="footer-links" style="font-style: normal">
+          <a href="mailto:hello@aheadoftime.shop">Get in touch</a>
+          <a href="#shop">Shop all</a>
+        </address>
+        <p>&copy; <span id="year"></span> Ahead of Time</p>
+      </div>
+    </footer>
+
+    <dialog id="cart-dialog" aria-labelledby="cart-title">
+      <div class="dialog-head">
+        <h2 id="cart-title">Your little bag</h2>
+        <button class="icon-button" id="close-cart" type="button" aria-label="Close shopping bag">&times;</button>
+      </div>
+      <div class="dialog-body" id="cart-content"></div>
+    </dialog>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <script>
+      const products = [
+        { id: "daisy", name: "Daisy Day Tote", description: "A cheerful little carry-all for everyday adventures.", price: 38, label: "Bestseller", image: "https://images.unsplash.com/photo-1591561954557-26941169b49e?auto=format&fit=crop&w=800&q=80", alt: "A handmade woven tote bag ready for a sunny day" },
+        { id: "bloom", name: "Sunday Bloom", description: "A soft, sunny flower to brighten your favorite corner.", price: 24, label: "Made with love", image: "https://images.unsplash.com/photo-1490750967868-88aa4486c946?auto=format&fit=crop&w=800&q=80", alt: "A bright bunch of soft pink and peach flowers" },
+        { id: "cloud", name: "Cloud Nine Scarf", description: "A cozy, chunky layer for slow mornings and cool walks.", price: 52, label: "Extra cozy", image: "https://images.unsplash.com/photo-1601924994987-69e26d50dc26?auto=format&fit=crop&w=800&q=80", alt: "A soft, warmly textured knitted scarf" }
+      ];
+      const cartKey = "ahead-of-time-cart";
+      const productGrid = document.querySelector("#product-grid");
+      const cartDialog = document.querySelector("#cart-dialog");
+      const cartContent = document.querySelector("#cart-content");
+      let cart = loadCart();
+      let toastTimer;
+
+      function loadCart() {
+        try { return JSON.parse(localStorage.getItem(cartKey) || "{}"); }
+        catch { return {}; }
+      }
+
+      function saveCart() {
+        localStorage.setItem(cartKey, JSON.stringify(cart));
+        updateCartCount();
+      }
+
+      function updateCartCount() {
+        const count = Object.values(cart).reduce((total, quantity) => total + quantity, 0);
+        document.querySelector("#cart-count").textContent = count;
+      }
+
+      function renderProducts() {
+        productGrid.innerHTML = products.map((product) => `
+          <article class="product-card">
+            <div class="product-image">
+              <img src="${product.image}" alt="${product.alt}" loading="lazy">
+              <span class="product-label">${product.label}</span>
+            </div>
+            <div class="product-info">
+              <div><h3>${product.name}</h3><p>${product.description}</p></div>
+              <span class="price">$${product.price.toFixed(2)}</span>
+            </div>
+            <button class="add-button" type="button" data-add="${product.id}" aria-label="Add ${product.name} to bag">Add to bag</button>
+          </article>`).join("");
+      }
+
+      function showToast(message) {
+        const toast = document.querySelector("#toast");
+        toast.textContent = message;
+        toast.classList.add("visible");
+        clearTimeout(toastTimer);
+        toastTimer = setTimeout(() => toast.classList.remove("visible"), 2300);
+      }
+
+      function renderCart() {
+        const entries = products.filter((product) => cart[product.id] > 0);
+        if (!entries.length) {
+          cartContent.innerHTML = '<p class="empty-cart">Your bag is taking a little nap. Find something handmade to tuck inside.</p><a class="button" href="#shop" id="browse-shop">Browse the shop</a>';
+          document.querySelector("#browse-shop").addEventListener("click", () => cartDialog.close());
+          return;
+        }
+
+        const total = entries.reduce((sum, product) => sum + product.price * cart[product.id], 0);
+        cartContent.innerHTML = `
+          <div class="cart-items">${entries.map((product) => `
+            <div class="cart-row">
+              <strong>${product.name}</strong><span>$${(product.price * cart[product.id]).toFixed(2)}</span>
+              <div class="quantity-controls" aria-label="Quantity for ${product.name}">
+                <button type="button" data-change="${product.id}" data-delta="-1" aria-label="Remove one ${product.name}">−</button>
+                <span>${cart[product.id]}</span>
+                <button type="button" data-change="${product.id}" data-delta="1" aria-label="Add one ${product.name}">+</button>
+                <button type="button" data-change="${product.id}" data-delta="-${cart[product.id]}" aria-label="Remove ${product.name}">Remove</button>
+              </div>
+            </div>`).join("")}</div>
+          <p class="cart-total"><span>Subtotal</span><span>$${total.toFixed(2)}</span></p>
+          <form class="checkout-form" id="checkout-form">
+            <label>Your name<input name="name" autocomplete="name" required></label>
+            <label>Email address<input type="email" name="email" autocomplete="email" required></label>
+            <label>Shipping address<textarea name="address" autocomplete="street-address" required></textarea></label>
+            <button class="button" type="submit">Place order by email</button>
+            <p class="checkout-note">Your email app will open with your order details, ready to send to the maker. Payment and shipping will be confirmed directly by email.</p>
+          </form>`;
+      }
+
+      productGrid.addEventListener("click", (event) => {
+        const button = event.target.closest("[data-add]");
+        if (!button) return;
+        const id = button.dataset.add;
+        cart[id] = (cart[id] || 0) + 1;
+        saveCart();
+        showToast(`${products.find((product) => product.id === id).name} added to your bag`);
+      });
+
+      cartContent.addEventListener("click", (event) => {
+        const button = event.target.closest("[data-change]");
+        if (!button) return;
+        const id = button.dataset.change;
+        cart[id] = (cart[id] || 0) + Number(button.dataset.delta);
+        if (cart[id] <= 0) delete cart[id];
+        saveCart();
+        renderCart();
+      });
+
+      cartContent.addEventListener("submit", (event) => {
+        if (event.target.id !== "checkout-form") return;
+        event.preventDefault();
+        const form = new FormData(event.target);
+        const orderLines = products
+          .filter((product) => cart[product.id] > 0)
+          .map((product) => `${product.name} x ${cart[product.id]} - $${(product.price * cart[product.id]).toFixed(2)}`);
+        const total = products.reduce((sum, product) => sum + product.price * (cart[product.id] || 0), 0);
+        const subject = encodeURIComponent(`Ahead of Time order from ${form.get("name")}`);
+        const body = encodeURIComponent([
+          `Name: ${form.get("name")}`,
+          `Email: ${form.get("email")}`,
+          `Shipping address: ${form.get("address")}`,
+          "",
+          "Order:", ...orderLines,
+          "", `Subtotal: $${total.toFixed(2)}`
+        ].join("\n"));
+        window.location.href = `mailto:hello@aheadoftime.shop?subject=${subject}&body=${body}`;
+        showToast("Your order email is ready to send");
+      });
+
+      document.querySelector("#open-cart").addEventListener("click", () => {
+        renderCart();
+        cartDialog.showModal();
+      });
+      document.querySelector("#close-cart").addEventListener("click", () => cartDialog.close());
+      cartDialog.addEventListener("click", (event) => {
+        if (event.target === cartDialog) cartDialog.close();
+      });
+      document.querySelector("#year").textContent = new Date().getFullYear();
+      renderProducts();
+      updateCartCount();
+    </script>
+  </body>
+</html>
